@@ -12,3 +12,9 @@ services:
       - ./docker-compose/db/mysql:/var/lib/mysql
     ports:
       - "3306:3306"
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge

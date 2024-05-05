@@ -7,7 +7,6 @@ import (
 	"example/hello/pkg/service"
 	"github.com/spf13/viper"
 	"log"
-	"strconv"
 )
 
 func main() {
@@ -23,7 +22,7 @@ func main() {
 	handlers := handler.NewHandler(services) // обработчик выбранного сервиса
 
 	srv := new(sever.Server)
-	port, _ := strconv.Atoi(viper.GetString("port"))
+	port := viper.GetInt("port")
 
 	if err := srv.Run(port, handlers.InitRoutes()); err != nil {
 		log.Fatalf("error occurred: %s", err.Error())
