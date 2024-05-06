@@ -1,1 +1,7 @@
 port: 8000
+
+db:
+  host: localhost
+  port: 3306
+  name: my_custom_db
+  username: homestead
