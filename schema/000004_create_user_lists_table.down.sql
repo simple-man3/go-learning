@@ -1,1 +1,1 @@
-drop table users_lists;
+drop table user_lists;
