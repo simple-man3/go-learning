@@ -1,4 +1,4 @@
-package sever
+package server
 
 type TodoList struct {
 	Id          int    `json:"id"`

@@ -1,9 +1,12 @@
 package service
 
-import "example/hello/pkg/repository"
+import (
+	server "example/hello"
+	"example/hello/pkg/repository"
+)
 
 type Authorization interface {
-	Auth(email string, password string) bool
+	CreateUser(user server.User) (int, error)
 }
 
 type TodoList interface {
@@ -24,5 +27,7 @@ func (s *Service) Auth(email string, password string) bool {
 
 // NewService что-то по типу конструктора
 func NewService(repos *repository.Repository) *Service {
-	return &Service{}
+	return &Service{
+		Authorization: NewAuthService(repos.Authorization),
+	}
 }

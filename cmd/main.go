@@ -15,6 +15,7 @@ import (
 )
 
 func main() {
+	//migrate -path ./schemas -database 'mysql://homestead:secret@tcp(localhost:3306)/my_custom_db' down
 	if err := initConfig(); err != nil {
 		log.Fatalf("error initializing config: %s", err.Error())
 	}
@@ -54,8 +55,4 @@ func initConfig() error {
 	viper.SetConfigName("config")
 
 	return viper.ReadInConfig()
-}
-
-func initDbConnection() {
-
 }
